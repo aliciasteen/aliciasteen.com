@@ -1,13 +1,13 @@
 language: generic
-
-# Install terraform
-before_deploy:
-  - curl -fSL "https://releases.hashicorp.com/terraform/0.11.11/terraform_0.11.11_linux_amd64.zip" -o terraform.zip
-  - sudo unzip terraform.zip -d /opt/terraform
-  - sudo ln -s /opt/terraform/terraform /usr/bin/terraform
-  - rm -f terraform.zip
   
 deploy:
   - provider: script
     skip_cleanup: true
     script: "./deploy.sh"
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY_ID
+    secret_access_key: $AWS_SECRET_ACCESS_KEY
+    bucket: terraform.aliciasteen.com
+    skip_cleanup: true
+    local_dir: site
+    region: eu-west-1
