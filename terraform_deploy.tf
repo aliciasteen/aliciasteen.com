@@ -22,7 +22,7 @@ module "cloudfront_site" {
       aws.useast1 = "aws.useast1"
   }
 
-  website_name = "terraform.aliciasteen.com"
+  website_name = "aliciasteen.com"
   hosted_zone_id = "ZEH65RG0PBQJ0"
   region = "eu-west-1"
   price_class = "PriceClass_100"
