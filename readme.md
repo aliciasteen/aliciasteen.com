@@ -1,11 +1,16 @@
-# description
+# Description
 - Website which is deployed to AWS using Travis. Terraform used can be found https://github.com/aliciasteen/terraform-aws-site
 
 This Terraform creates an S3 bucket, CloudFront distribution, SSL cert and Route53 records. 
 
 The Travis job stores the Terraform in S3, deploys the Terraform and then uploads the site to S3. 
 
-## To deploy
+## Deployment
+- Git commit will trigger Travis CI
+- Travis job will deploy terraform from https://github.com/aliciasteen/terraform-aws-site with config from this repo
+- Travis job then uploads the content of `site` directory to S3
+
+## To deploy to your own site
 - Fork this repo
 - Set up Travis to point to your repo
 - Add AWS_ACCESS_KEY_ID and AWS_SECRET_KEY variables to travis
